@@ -1,0 +1,4 @@
+node_modules/
+services/auth-service/.env
+.env
+client/.next/

@@ -1,0 +1,43 @@
+{
+  "name": "biteme-microservices",
+  "version": "1.0.0",
+  "description": "BiteMe microservices architecture for nutritional tracking with AI",
+  "main": "services/gateway-api/app.js",
+  "scripts": {
+    "dev": "concurrently \"npm run auth:dev\" \"npm run meals:dev\" \"npm run ai:dev\" \"npm run gateway:dev\" \"npm run client:dev\"",
+    "auth:dev": "cd services/auth-service && npm run dev",
+    "meals:dev": "cd services/meals-service && npm run dev",
+    "ai:dev": "cd services/ai-parser-service && npm run dev",
+    "gateway:dev": "cd services/gateway-api && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "start": "concurrently \"npm run auth:start\" \"npm run meals:start\" \"npm run ai:start\" \"npm run gateway:start\"",
+    "auth:start": "cd services/auth-service && npm start",
+    "meals:start": "cd services/meals-service && npm start",
+    "ai:start": "cd services/ai-parser-service && npm start",
+    "gateway:start": "cd services/gateway-api && npm start",
+    "client:start": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install:all": "cd services/auth-service && npm install && cd ../meals-service && npm install && cd ../ai-parser-service && npm install && cd ../gateway-api && npm install && cd ../../client && npm install",
+    "test": "cd services/auth-service && npm test && cd ../meals-service && npm test && cd ../ai-parser-service && npm test && cd ../gateway-api && npm test && cd ../../client && npm test"
+  },
+  "keywords": [
+    "microservices",
+    "nutrition",
+    "ai",
+    "meal-tracking",
+    "fitness"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.1.0",
+    "mongoose": "^8.16.2",
+    "multer": "^1.4.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
